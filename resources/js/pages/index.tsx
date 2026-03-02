@@ -1,14 +1,14 @@
 import React from 'react';
 import { Head } from '@inertiajs/react';
-import TopBar from './home/TopBar';
-import Navbar from './home/Navbar';
-import HeroBanner from './home/HeroBanner';
-import CategorySection from './home/CategorySection';
-import FeaturedProducts from './home/FeaturedProducts';
-import PromoSection from './home/PromoSection';
-import SaleSection from './home/SaleSection';
-import Newsletter from './home/Newsletter';
-import Footer from './home/Footer';
+import TopBar from '@/components/home/top-header';
+import Navbar from '@/components/home/navbar';
+import HeroBanner from '@/components/home/hero-banner';
+import CategorySection from '@/components/home/categories-section';
+import FeaturedProducts from '@/components/home/featured-products';
+import PromoSection from '@/components/home/promo-section';
+import SaleSection from '@/components/home/sale-section';
+import Newsletter from '@/components/home/news-letter';
+import Footer from '@/components/home/footer';
 
 export default function Home() {
     return (
@@ -21,33 +21,16 @@ export default function Home() {
             </Head>
 
             <div className="font-[Inter,sans-serif] bg-white min-h-screen">
-                {/* Top announcement bar */}
                 <TopBar />
-
-                {/* Main navigation */}
                 <Navbar />
-
-                {/* Hero slider */}
                 <main>
                     <HeroBanner />
-
-                    {/* Shop by Category */}
                     <CategorySection />
-
-                    {/* Featured Products with tabs */}
                     <FeaturedProducts />
-
-                    {/* Promo banners */}
                     <PromoSection />
-
-                    {/* Flash Sale with countdown */}
                     <SaleSection />
-
-                    {/* Newsletter signup */}
                     <Newsletter />
                 </main>
-
-                {/* Footer */}
                 <Footer />
             </div>
         </>

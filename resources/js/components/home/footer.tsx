@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail, Zap, ChevronRight, Heart } from 'lucide-react';
+import { Link } from '@inertiajs/react';
 
 const footerLinks = {
     'Shop': ['New Arrivals', 'Best Sellers', 'Sale', 'Brands', 'All Products'],
@@ -116,9 +117,11 @@ export default function Footer() {
                         <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
                         <a href="#" className="hover:text-white transition-colors">Terms</a>
                         <a href="#" className="hover:text-white transition-colors">Cookies</a>
+                        <Link href='/create-store/page' className="hover:text-white transition-colors">Be Seller</Link>
                     </div>
                 </div>
             </div>
         </footer>
     );
 }
+
