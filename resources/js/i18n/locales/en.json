@@ -273,5 +273,20 @@
     "image_picker": {
         "click_to_upload": "Click to upload",
         "file_hint": "PNG, JPG, WEBP — max 2 MB"
+    },
+    "categories": {
+        "explore": "Explore",
+        "shop_by_category": "Shop by Category",
+        "view_all": "View All"
+    },
+    "feature": {
+        "free_shipping": "Free Shipping",
+        "free_shipping_desc": "On orders over $50",
+        "easy_returns": "Easy Returns",
+        "easy_returns_desc": "30-day return policy",
+        "secure_payment": "Secure Payment",
+        "secure_payment_desc": "100% protected",
+        "24_7_support": "24/7 Support",
+        "24_7_support_desc": "Dedicated team"
     }
 }

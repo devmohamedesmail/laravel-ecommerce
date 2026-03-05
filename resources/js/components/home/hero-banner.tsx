@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const slides = [
     {
@@ -50,6 +51,7 @@ const stats = [
 export default function HeroBanner() {
     const [current, setCurrent] = useState(0);
     const [transitioning, setTransitioning] = useState(false);
+    const {t,i18n}=useTranslation()
 
     const goTo = (index: number) => {
         if (transitioning) return;
@@ -221,10 +223,10 @@ export default function HeroBanner() {
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
                         {[
-                            { icon: '🚚', title: 'Free Shipping', desc: 'On orders over $50' },
-                            { icon: '🔄', title: 'Easy Returns', desc: '30-day return policy' },
-                            { icon: '🔒', title: 'Secure Payment', desc: '100% protected' },
-                            { icon: '🎧', title: '24/7 Support', desc: 'Dedicated team' },
+                            { icon: '🚚', title: t('feature.free_shipping'), desc: t('feature.free_shipping_desc') },
+                            { icon: '🔄', title: t('feature.easy_returns'), desc: t('feature.easy_returns_desc') },
+                            { icon: '🔒', title: t('feature.secure_payment'), desc: t('feature.secure_payment_desc') },
+                            { icon: '🎧', title: t('feature.24_7_support'), desc: t('feature.24_7_support_desc') },
                         ].map((f) => (
                             <div key={f.title} className="flex items-center gap-3 px-6 py-4 hover:bg-orange-50 transition-colors cursor-default">
                                 <span className="text-2xl">{f.icon}</span>

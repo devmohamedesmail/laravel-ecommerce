@@ -273,5 +273,20 @@
     "image_picker": {
         "click_to_upload": "انقر للرفع",
         "file_hint": "PNG، JPG، WEBP — الحد الأقصى ٢ ميغابايت"
+    },
+    "categories": {
+        "explore": "استكشف",
+        "shop_by_category": "تسوق حسب الفئة",
+        "view_all": "عرض الكل"
+    },
+    "feature": {
+        "free_shipping": "شحن مجاني",
+        "free_shipping_desc": "للطلبات التي تتجاوز 50$",
+        "easy_returns": "إرجاع سهل",
+        "easy_returns_desc": "سياسة الإرجاع خلال 30 يومًا",
+        "secure_payment": "دفع آمن",
+        "secure_payment_desc": "100% محمي",
+        "24_7_support": "دعم على مدار الساعة",
+        "24_7_support_desc": "فريق مخصص لخدمتك"
     }
 }

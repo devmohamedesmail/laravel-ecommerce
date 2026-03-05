@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function index() {
+export default function VendorDashboard() {
   return (
-    <div>index</div>
+    <div>vendor dashbord</div>
   )
 }
