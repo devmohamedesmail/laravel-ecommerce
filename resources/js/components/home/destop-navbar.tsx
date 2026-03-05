@@ -1,49 +1,40 @@
 import React, { useState } from 'react'
-import { Shirt, Smartphone, HomeIcon, Watch, Gem, Baby, Dumbbell, Zap, Menu, ChevronDown } from 'lucide-react';
-import { Link } from '@inertiajs/react';
+import { Menu, ChevronDown } from 'lucide-react';
+import { Link, usePage } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
 
 export default function DesktopNavbar() {
-    const categories = [
-    { icon: Shirt, label: 'Fashion', href: '#' },
-    { icon: Smartphone, label: 'Electronics', href: '#' },
-    { icon: HomeIcon, label: 'Home & Living', href: '#' },
-    { icon: Watch, label: 'Watches', href: '#' },
-    { icon: Gem, label: 'Jewelry', href: '#' },
-    { icon: Baby, label: 'Baby & Kids', href: '#' },
-    { icon: Dumbbell, label: 'Sports', href: '#' },
-    { icon: Zap, label: 'Flash Deals', href: '#' },
-];
+    const [showCatDropdown, setShowCatDropdown] = useState(false);
+    const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+    const { t, i18n } = useTranslation();
+    const { categories }: any = usePage().props;
 
-const navLinks = [
-    {
-        label: 'Home', href: '/', hasDropdown: false,
-    },
-    {
-        label: 'Shop', href: '#', hasDropdown: true,
-        children: ['New Arrivals', 'Trending Now', 'Best Sellers', 'Clearance Sale'],
-    },
-    {
-        label: 'Categories', href: '#', hasDropdown: true,
-        children: ['Fashion', 'Electronics', 'Home & Living', 'Sports', 'Beauty'],
-    },
-    {
-        label: 'Brands', href: '#', hasDropdown: true,
-        children: ['Nike', 'Apple', 'Samsung', 'IKEA', 'Zara'],
-    },
-    {
-        label: 'Sale', href: '#', hasDropdown: false, badge: 'HOT',
-    },
-    {
-        label: 'Blog', href: '#', hasDropdown: false,
-    },
-    {
-        label: 'Contact', href: '#', hasDropdown: false,
-    },
-];
- const [showCatDropdown, setShowCatDropdown] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const { t } = useTranslation();
+    const navLinks = [
+        {
+            label: 'Home', href: '/', hasDropdown: false,
+        },
+        {
+            label: 'Shop', href: '#', hasDropdown: true,
+            children: ['New Arrivals', 'Trending Now', 'Best Sellers', 'Clearance Sale'],
+        },
+        {
+            label: 'Categories', href: '#', hasDropdown: true,
+            children: categories.map((category: any) => category.name_en),
+        },
+        {
+            label: 'Brands', href: '#', hasDropdown: true,
+            children: ['Nike', 'Apple', 'Samsung', 'IKEA', 'Zara'],
+        },
+        {
+            label: 'Sale', href: '#', hasDropdown: false, badge: 'HOT',
+        },
+        {
+            label: 'Blog', href: '#', hasDropdown: false,
+        },
+        {
+            label: 'Contact', href: '#', hasDropdown: false,
+        },
+    ];
     return (
         <nav className="hidden lg:block border-t border-gray-100 bg-white">
             <div className="max-w-7xl mx-auto px-4">
@@ -61,15 +52,15 @@ const navLinks = [
                         </button>
                         {showCatDropdown && (
                             <div className="absolute top-full left-0 bg-white border border-gray-100 shadow-xl rounded-b-lg z-50 w-56 py-2">
-                                {categories.map(({ icon: Icon, label, href }) => (
-                                    <a
-                                        key={label}
-                                        href={href}
+                                {categories.map((category: any) => (
+                                    <Link
+                                        key={category.id}
+                                        href={category.href}
                                         className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-[#c96] transition-colors"
                                     >
-                                        <Icon size={16} className="text-gray-400 group-hover:text-[#c96]" />
-                                        {label}
-                                    </a>
+                                        <img src={category.image} alt="" className='w-5 h-5' />
+                                        {i18n.language === 'en' ? category.name_en : category.name_ar}
+                                    </Link>
                                 ))}
                             </div>
                         )}
@@ -97,9 +88,9 @@ const navLinks = [
                             </Link>
                             {link.hasDropdown && openDropdown === link.label && (
                                 <div className="absolute top-full left-0 bg-white border border-gray-100 shadow-xl rounded-b-lg z-50 min-w-45 py-2">
-                                    {link.children?.map((child) => (
+                                    {link.children?.map((child: any) => (
                                         <a
-                                            key={child}
+                                            key={child.id}
                                             href="#"
                                             className="block px-4 py-2 text-sm text-gray-700 hover:bg-orange-50 hover:text-[#c96] transition-colors"
                                         >

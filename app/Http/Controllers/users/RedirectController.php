@@ -14,13 +14,15 @@ class RedirectController extends Controller
         return Inertia::render('index');
     }
 
-    public function redirect_to_dashboard()
+    public function redirect_user()
     {
         try {
             $user = Auth::user();
             switch ($user->role_id) {
                 case 1: // admin
-                    return redirect()->route('admin.dashboard');
+                  
+                    return Inertia::render('dashboard');
+                    // return redirect()->route('admin.dashboard');
                     break;
 
                 case 2: // user
@@ -28,11 +30,12 @@ class RedirectController extends Controller
                     break;
 
                 case 3: // vendor
-                    return Inertia::render('vendor/index');
+                    return Inertia::render('vendor/dashboard/index');
                     break;
 
                 default:
-                    return redirect()->route('login');
+                     return Inertia::render('index');
+                    // return redirect()->route('login');
             }
         } catch (\Throwable $th) {
             return Inertia::render("404/index", [

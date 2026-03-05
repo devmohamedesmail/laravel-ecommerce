@@ -24,7 +24,7 @@ export default function DesktopSearch() {
     return (
         <div className="hidden md:flex flex-1 max-w-2xl mx-auto">
             <div className="flex w-full border border-primary rounded-full overflow-hidden shadow-sm">
-                <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                {/* <Select value={selectedCategory} onValueChange={setSelectedCategory}>
                     <SelectTrigger className="border-0 border-r border-gray-200 rounded-none bg-gray-50 text-gray-600 text-xs h-full min-w-32 focus-visible:ring-0 shadow-none">
                         <SelectValue placeholder="All Categories" />
                     </SelectTrigger>
@@ -34,7 +34,7 @@ export default function DesktopSearch() {
                             <SelectItem key={c.label} value={c.label}>{c.label}</SelectItem>
                         ))}
                     </SelectContent>
-                </Select>
+                </Select> */}
                 <input
                     type="text"
                     value={searchQuery}
