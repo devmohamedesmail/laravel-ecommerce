@@ -66,17 +66,17 @@ export default function VendorSettings({ store, categories, storeCategories }: P
     };
 
     return (
-        <VendorLayout title={t('vendor_dashboard.settings.title')}>
+        <VendorLayout title={t('vendor.settings.title')}>
             <Head title={`${store.name} — ${t('vendor_dashboard.settings.title')}`} />
             <div className="mb-6">
-                <h2 className="text-xl font-extrabold text-gray-900 dark:text-white">{t('vendor_dashboard.settings.title')}</h2>
-                <p className="text-sm text-gray-500 mt-0.5">{t('vendor_dashboard.settings.subtitle')}</p>
+                <h2 className="text-xl font-extrabold text-gray-900 dark:text-white">{t('vendor.settings.title')}</h2>
+                <p className="text-sm text-gray-500 mt-0.5">{t('vendor.settings.subtitle')}</p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-5">
 
                 {/* Store Info */}
-                <SectionCard icon={Store} title={t('vendor_dashboard.settings.store_info')}>
+                <SectionCard icon={Store} title={t('vendor.settings.store_info')}>
                     <div className="space-y-4">
                         <div className="space-y-1.5">
                             <Label>{t('create_store.info.name')} <span className="text-red-500">*</span></Label>
@@ -106,7 +106,7 @@ export default function VendorSettings({ store, categories, storeCategories }: P
                 </SectionCard>
 
                 {/* Location */}
-                <SectionCard icon={MapPin} title={t('vendor_dashboard.settings.location')}>
+                <SectionCard icon={MapPin} title={t('vendor.settings.location')}>
                     <div className="space-y-4">
                         <div className="space-y-1.5">
                             <Label>{t('create_store.location.address')}</Label>
@@ -146,8 +146,8 @@ export default function VendorSettings({ store, categories, storeCategories }: P
                 </SectionCard>
 
                 {/* Categories */}
-                <SectionCard icon={TagIcon} title={t('vendor_dashboard.settings.categories')}>
-                    <p className="text-xs text-gray-500 mb-4">{t('vendor_dashboard.settings.categories_desc')}</p>
+                <SectionCard icon={TagIcon} title={t('vendor.settings.categories')}>
+                    <p className="text-xs text-gray-500 mb-4">{t('vendor.settings.categories_desc')}</p>
                     {selectedCats.length > 0 && (
                         <div className="flex flex-wrap gap-2 mb-4 p-3 bg-orange-50 dark:bg-orange-900/10 rounded-xl border border-orange-100 dark:border-orange-900/20">
                             {selectedCats.map(id => {
@@ -196,7 +196,7 @@ export default function VendorSettings({ store, categories, storeCategories }: P
 
                 <div className="flex justify-end pt-2">
                     <Button type="submit" disabled={processing} className="bg-orange-500 hover:bg-orange-600 text-white border-0 min-w-36">
-                        {processing ? t('vendor_dashboard.settings.saving') : t('vendor_dashboard.settings.save')}
+                        {processing ? t('vendor.settings.saving') : t('vendor.settings.save')}
                     </Button>
                 </div>
             </form>

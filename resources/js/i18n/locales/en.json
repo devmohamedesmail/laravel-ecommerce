@@ -309,6 +309,25 @@
             "go_to_settings":"Go to Settings",
             "no_categories":"No categories available yet.",
             "active":"Active"
+        },
+        "settings":{
+            "title":"Settings",
+            "subtitle":"Manage your store settings",
+            "store_info":"Store Info",
+            "location":"Location",
+            "categories":"Categories",
+            "media":"Media",
+            "save":"Save",
+            "address":"Address",
+            "city":"City",
+            "state":"State / Province",
+            "zip":"ZIP / Postal Code",
+            "country":"Country",
+            "currency":"Currency",
+            "none":"None",
+            "selected":"selected",
+            "categories_desc":"Choose the categories that best describe your store's products.",
+            "saving":"Saving…"
         }
     }
 }

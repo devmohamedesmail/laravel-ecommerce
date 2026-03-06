@@ -5,7 +5,9 @@ import {
     LayoutDashboard, Package, Tag, ShoppingBag,
     Settings, Store, ChevronLeft, ChevronRight,
     Globe, Menu, X, ExternalLink,
+    Sun,
 } from 'lucide-react';
+import { useAppearance } from '@/hooks/use-appearance';
 
 interface Props {
     children: React.ReactNode;
@@ -21,6 +23,7 @@ export default function VendorLayout({ children, title }: Props) {
     const isRtl = i18n.language === 'ar';
     const [collapsed, setCollapsed] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
+    const {  appearance, updateAppearance }=useAppearance()
 
     const currentPath = typeof window !== 'undefined' ? window.location.pathname : '';
 
@@ -100,6 +103,14 @@ const NAV_ITEMS = [
                 >
                     <Globe size={16} className="shrink-0" />
                     {!collapsed && <span>{i18n.language === 'ar' ? 'English' : 'عربي'}</span>}
+                </button>
+
+                <button
+                    onClick={() => appearance === 'dark' ? updateAppearance('light') : updateAppearance('dark')}
+                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-orange-100 hover:bg-white/10 text-sm font-medium transition-all ${collapsed ? 'justify-center' : ''}`}
+                >
+                    <Sun size={16} className="shrink-0" />
+                    {!collapsed && <span>{appearance === 'dark' ? 'Light' : 'Dark'}</span>}
                 </button>
             </div>
         </div>
