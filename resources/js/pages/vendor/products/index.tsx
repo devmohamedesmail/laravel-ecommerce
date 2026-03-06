@@ -48,63 +48,63 @@ function ProductModal({ open, onClose, categories, editProduct, currency, proces
             <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto">
                 <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800">
                     <h2 className="font-bold text-gray-900 dark:text-white">
-                        {editProduct ? t('vendor_dashboard.products.edit_modal_title') : t('vendor_dashboard.products.add_modal_title')}
+                        {editProduct ? t('vendor.products.edit_modal_title') : t('vendor.products.add_modal_title')}
                     </h2>
                     <button onClick={onClose} className="text-gray-400 hover:text-gray-600"><X size={18} /></button>
                 </div>
                 <div className="p-6 space-y-4">
                     <div className="space-y-1.5">
-                        <Label>{t('vendor_dashboard.products.name')} <span className="text-red-500">*</span></Label>
+                        <Label>{t('vendor.products.name')} <span className="text-red-500">*</span></Label>
                         <Input value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))} />
                     </div>
                     <div className="space-y-1.5">
-                        <Label>{t('vendor_dashboard.products.description')}</Label>
+                        <Label>{t('vendor.products.description')}</Label>
                         <Textarea rows={3} value={form.description ?? ''} onChange={e => setForm(f => ({ ...f, description: e.target.value }))} />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-1.5">
-                            <Label>{t('vendor_dashboard.products.price')} ({currency})</Label>
+                            <Label>{t('vendor.products.price')} ({currency})</Label>
                             <Input type="number" min={0} step={0.01} value={form.price} onChange={e => setForm(f => ({ ...f, price: parseFloat(e.target.value) || 0 }))} />
                         </div>
                         <div className="space-y-1.5">
-                            <Label>{t('vendor_dashboard.products.sale_price')}</Label>
+                            <Label>{t('vendor.products.sale_price')}</Label>
                             <Input type="number" min={0} step={0.01} value={form.sale_price ?? ''} onChange={e => setForm(f => ({ ...f, sale_price: e.target.value ? parseFloat(e.target.value) : undefined }))} />
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-1.5">
-                            <Label>{t('vendor_dashboard.products.stock')}</Label>
+                            <Label>{t('vendor.products.stock')}</Label>
                             <Input type="number" min={0} value={form.stock ?? ''} onChange={e => setForm(f => ({ ...f, stock: e.target.value ? parseInt(e.target.value) : undefined }))} />
                         </div>
                         <div className="space-y-1.5">
-                            <Label>{t('vendor_dashboard.products.sku')}</Label>
+                            <Label>{t('vendor.products.sku')}</Label>
                             <Input value={form.sku ?? ''} onChange={e => setForm(f => ({ ...f, sku: e.target.value }))} />
                         </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-1.5">
-                            <Label>{t('vendor_dashboard.products.category')}</Label>
+                            <Label>{t('vendor.products.category')}</Label>
                             <select value={form.category_id ?? ''} onChange={e => setForm(f => ({ ...f, category_id: e.target.value ? parseInt(e.target.value) : undefined }))}
                                 className="w-full px-3 py-2 text-sm border border-input rounded-md bg-white dark:bg-gray-900 dark:text-white h-9 outline-none">
-                                <option value="">{t('vendor_dashboard.products.select_category')}</option>
+                                <option value="">{t('vendor.products.select_category')}</option>
                                 {categories.map((c: Category) => <option key={c.id} value={c.id}>{isRtl ? c.name_ar : c.name_en}</option>)}
                             </select>
                         </div>
                         <div className="space-y-1.5">
-                            <Label>{t('vendor_dashboard.products.status')}</Label>
+                            <Label>{t('vendor.products.status')}</Label>
                             <select value={form.status} onChange={e => setForm(f => ({ ...f, status: e.target.value }))}
                                 className="w-full px-3 py-2 text-sm border border-input rounded-md bg-white dark:bg-gray-900 dark:text-white h-9 outline-none">
-                                <option value="active">{t('vendor_dashboard.products.active')}</option>
-                                <option value="inactive">{t('vendor_dashboard.products.inactive')}</option>
-                                <option value="draft">{t('vendor_dashboard.products.draft')}</option>
+                                <option value="active">{t('vendor.products.active')}</option>
+                                <option value="inactive">{t('vendor.products.inactive')}</option>
+                                <option value="draft">{t('vendor.products.draft')}</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div className="flex justify-end gap-3 px-6 py-4 border-t border-gray-100 dark:border-gray-800">
-                    <Button type="button" variant="outline" onClick={onClose}>{t('vendor_dashboard.products.cancel')}</Button>
+                    <Button type="button" variant="outline" onClick={onClose}>{t('vendor.products.cancel')}</Button>
                     <Button type="button" disabled={processing || !form.name} onClick={() => onSubmit(form)} className="bg-orange-500 hover:bg-orange-600 text-white border-0">
-                        {processing ? t('vendor_dashboard.products.saving') : t('vendor_dashboard.products.save')}
+                        {processing ? t('vendor.products.saving') : t('vendor.products.save')}
                     </Button>
                 </div>
             </div>
@@ -147,7 +147,7 @@ export default function VendorProducts({ store, products, categories }: Props) {
     const handleSubmit = (data: FormData) => {
         setProcessing(true);
         const opts = {
-            onSuccess: () => { toast.success(t('vendor_dashboard.products.save_success')); setModalOpen(false); },
+            onSuccess: () => { toast.success(t('vendor.products.save_success')); setModalOpen(false); },
             onError: () => toast.error(t('common.error')),
             onFinish: () => setProcessing(false),
         };
@@ -160,34 +160,34 @@ export default function VendorProducts({ store, products, categories }: Props) {
         if (!deleteTarget) return;
         setProcessing(true);
         router.delete(`/vendor/products/${deleteTarget.id}`, {
-            onSuccess: () => { toast.success(t('vendor_dashboard.products.delete_success')); setDeleteTarget(null); },
+            onSuccess: () => { toast.success(t('vendor.products.delete_success')); setDeleteTarget(null); },
             onError: () => toast.error(t('common.error')),
             onFinish: () => setProcessing(false),
         });
     };
 
     return (
-        <VendorLayout title={t('vendor_dashboard.products.title')}>
-            <Head title={`${store.name} — ${t('vendor_dashboard.products.title')}`} />
+        <VendorLayout title={t('vendor.products.title')}>
+            <Head title={`${store.name} — ${t('vendor.products.title')}`} />
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                 <div>
-                    <h2 className="text-xl font-extrabold text-gray-900 dark:text-white">{t('vendor_dashboard.products.title')}</h2>
-                    <p className="text-sm text-gray-500 mt-0.5">{products.total} {t('vendor_dashboard.products.title').toLowerCase()}</p>
+                    <h2 className="text-xl font-extrabold text-gray-900 dark:text-white">{t('vendor.products.title')}</h2>
+                    <p className="text-sm text-gray-500 mt-0.5">{products.total} {t('vendor.products.title').toLowerCase()}</p>
                 </div>
                 <Button onClick={() => { setEditProduct(null); setModalOpen(true); }} className="bg-orange-500 hover:bg-orange-600 text-white border-0 gap-2 shrink-0">
-                    <Plus size={16} /> {t('vendor_dashboard.products.add')}
+                    <Plus size={16} /> {t('vendor.products.add')}
                 </Button>
             </div>
 
             <div className="relative mb-5 max-w-sm">
                 <Search size={14} className={`absolute top-1/2 -translate-y-1/2 ${isRtl ? 'right-3' : 'left-3'} text-gray-400`} />
-                <Input value={search} onChange={e => setSearch(e.target.value)} placeholder={t('vendor_dashboard.products.search')} className={isRtl ? 'pr-9' : 'pl-9'} />
+                <Input value={search} onChange={e => setSearch(e.target.value)} placeholder={t('vendor.products.search')} className={isRtl ? 'pr-9' : 'pl-9'} />
             </div>
 
             {filtered.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-20 text-center">
                     <div className="w-16 h-16 rounded-2xl bg-orange-50 flex items-center justify-center mb-4"><Package size={28} className="text-orange-300" /></div>
-                    <p className="text-gray-500 text-sm">{t('vendor_dashboard.products.no_products')}</p>
+                    <p className="text-gray-500 text-sm">{t('vendor.products.no_products')}</p>
                 </div>
             ) : (
                 <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-xs overflow-hidden">
