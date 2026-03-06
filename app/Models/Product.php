@@ -13,8 +13,24 @@ class Product extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'slug', 'description', 'price', 'sale_price',
-        'stock', 'sku', 'status', 'store_id', 'category_id',
+        'store_id', 'category_id', 'title', 'slug', 'description', 'sku',
+        'price', 'sale_price', 'product_type', 'product_kind',
+        'stock', 'is_active', 'is_popular', 'is_featured',
+        'weight', 'length', 'width', 'height', 'tax', 'shipping_cost',
+    ];
+
+    protected $casts = [
+        'price'         => 'decimal:2',
+        'sale_price'    => 'decimal:2',
+        'weight'        => 'decimal:2',
+        'length'        => 'decimal:2',
+        'width'         => 'decimal:2',
+        'height'        => 'decimal:2',
+        'tax'           => 'decimal:2',
+        'shipping_cost' => 'decimal:2',
+        'is_active'     => 'boolean',
+        'is_popular'    => 'boolean',
+        'is_featured'   => 'boolean',
     ];
 
     /**

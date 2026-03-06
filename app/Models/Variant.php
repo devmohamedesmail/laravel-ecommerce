@@ -11,6 +11,15 @@ class Variant extends Model
     /** @use HasFactory<\Database\Factories\VariantFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'product_id',
+        'sku',
+        'price',
+        'sale_price',
+        'stock',
+        'is_active',
+    ];
+
     public function product()
     {
         return $this->belongsTo(Product::class);

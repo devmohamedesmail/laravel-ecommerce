@@ -9,6 +9,8 @@ class AttributeValue extends Model
     /** @use HasFactory<\Database\Factories\AttributeValueFactory> */
     use HasFactory;
 
+    protected $fillable = ['attribute_id', 'product_id', 'value', 'price'];
+
     /**
      * relation with attribute [one to many]
      */
@@ -17,7 +19,7 @@ class AttributeValue extends Model
         return $this->belongsTo(Attribute::class);
     }
 
-     /**
+    /**
      * relation with Variant [one to many]
      */
     public function variants()
