@@ -288,5 +288,27 @@
         "secure_payment_desc": "100% محمي",
         "24_7_support": "دعم على مدار الساعة",
         "24_7_support_desc": "فريق مخصص لخدمتك"
+    },
+    "vendor": {
+        "sidebar": {
+            "overview": "نظرة عامة",
+            "dashboard": "لوحة التحكم",
+            "products": "المنتجات",
+            "orders": "الطلبات",
+            "customers": "العملاء",
+            "reviews": "المراجعات",
+            "settings": "الإعدادات",
+            "categories": "التصنيفات",
+            "back_to_site": "العودة إلى الموقع",
+            "language": "اللغة",
+            "vendor_panel": "لوحة البائع"
+        },
+        "categories":{
+            "title":"التصنيفات",
+            "subtitle":"إدارة تصنيفات متجرك",
+            "go_to_settings":"الانتقال إلى الإعدادات",
+            "no_categories":"لا توجد تصنيفات متاحة حتى الآن.",
+            "active":"نشط"
+        }
     }
 }

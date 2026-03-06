@@ -288,5 +288,27 @@
         "secure_payment_desc": "100% protected",
         "24_7_support": "24/7 Support",
         "24_7_support_desc": "Dedicated team"
+    },
+    "vendor":{
+        "sidebar":{
+            "overview":"Overview",
+            "dashboard":"Dashboard",
+            "products":"Products",
+            "orders":"Orders",
+            "customers":"Customers",
+            "reviews":"Reviews",
+            "settings":"Settings",
+            "categories":"Categories",
+            "back_to_site":"Back to Site",
+            "language":"Language",
+            "vendor_panel":"Vendor Panel"
+        },
+        "categories":{
+            "title":"Categories",
+            "subtitle":"Manage your store categories",
+            "go_to_settings":"Go to Settings",
+            "no_categories":"No categories available yet.",
+            "active":"Active"
+        }
     }
 }
