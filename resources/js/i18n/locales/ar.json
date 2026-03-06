@@ -328,6 +328,33 @@
             "selected":"محدد",
             "categories_desc":"اختر الفئات التي تصف منتجات متجرك بشكل أفضل.",
             "saving":"جارٍ الحفظ…"
+        },
+         "overview":{
+            "total_products":"إجمالي المنتجات",
+            "total_categories":"إجمالي التصنيفات",
+            "total_orders":"إجمالي الطلبات",
+            "total_revenue":"إجمالي الإيرادات",
+            "recent_orders":"الطلبات الأخيرة",
+            "view_orders":"عرض الطلبات",
+            "welcome":"مرحبا",
+            "subtitle":"هذا ما يحدث مع متجرك اليوم.",
+            "quick_actions":"إجراءات سريعة",
+            "add_product":"إضافة منتج",
+            "manage_products":"إدارة المنتجات",
+            "edit_settings":"تعديل الإعدادات"
+        },
+        "orders":{
+            "order_id":"رقم الطلب",
+            "customer":"العميل",
+            "date":"التاريخ",
+            "total":"الإجمالي",
+            "status":"الحالة",
+            "actions":"الإجراءات",
+            "view":"عرض",
+            "processing":"قيد المعالجة",
+            "shipped":"تم الشحن",
+            "delivered":"تم التوصيل",
+            "cancelled":"تم الإلغاء"
         }
     }
 }

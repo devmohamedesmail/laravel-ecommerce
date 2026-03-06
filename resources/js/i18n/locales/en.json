@@ -328,6 +328,33 @@
             "selected":"selected",
             "categories_desc":"Choose the categories that best describe your store's products.",
             "saving":"Saving…"
+        },
+        "overview":{
+            "total_products":"Total Products",
+            "total_categories":"Total Categories",
+            "total_orders":"Total Orders",
+            "total_revenue":"Total Revenue",
+            "recent_orders":"Recent Orders",
+            "view_orders":"View Orders",
+            "welcome":"Welcome",
+            "subtitle":"Here's what's happening with your store today.",
+            "quick_actions":"Quick Actions",
+            "add_product":"Add Product",
+            "manage_products":"Manage Products",
+            "edit_settings":"Edit Settings"
+        },
+        "orders":{
+            "order_id":"Order ID",
+            "customer":"Customer",
+            "date":"Date",
+            "total":"Total",
+            "status":"Status",
+            "actions":"Actions",
+            "view":"View",
+            "processing":"Processing",
+            "shipped":"Shipped",
+            "delivered":"Delivered",
+            "cancelled":"Cancelled"
         }
     }
 }

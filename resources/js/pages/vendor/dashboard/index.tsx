@@ -60,19 +60,19 @@ export default function VendorDashboard({ store, productCount = 0, categoryCount
   const mockOrders = MOCK_ORDERS.length;
 
   const stats = [
-    { label: t('vendor_dashboard.overview.total_products'), value: productCount, icon: Package, color: 'bg-linear-to-br from-orange-400 to-orange-600' },
-    { label: t('vendor_dashboard.overview.total_categories'), value: categoryCount, icon: Tag, color: 'bg-linear-to-br from-violet-400 to-violet-600' },
-    { label: t('vendor_dashboard.overview.total_orders'), value: mockOrders, icon: ShoppingBag, color: 'bg-linear-to-br from-blue-400 to-blue-600' },
-    { label: t('vendor_dashboard.overview.total_revenue'), value: `$${mockRevenue}`, icon: TrendingUp, color: 'bg-linear-to-br from-emerald-400 to-emerald-600' },
+    { label: t('vendor.overview.total_products'), value: productCount, icon: Package, color: 'bg-linear-to-br from-orange-400 to-orange-600' },
+    { label: t('vendor.overview.total_categories'), value: categoryCount, icon: Tag, color: 'bg-linear-to-br from-violet-400 to-violet-600' },
+    { label: t('vendor.overview.total_orders'), value: mockOrders, icon: ShoppingBag, color: 'bg-linear-to-br from-blue-400 to-blue-600' },
+    { label: t('vendor.overview.total_revenue'), value: `$${mockRevenue}`, icon: TrendingUp, color: 'bg-linear-to-br from-emerald-400 to-emerald-600' },
   ];
 
   return (
-    <VendorLayout title={`${t('vendor_dashboard.overview.welcome')}, ${store.name ?? ''}`}>
+    <VendorLayout title={`${t('vendor.overview.welcome')}, ${store.name ?? ''}`}>
       <Head title={`${store.name ?? 'Dashboard'} — Dashboard`} />
 
       <div className="mb-6">
-        <h2 className="text-xl font-extrabold text-gray-900 dark:text-white">{t('vendor_dashboard.overview.welcome')} 👋</h2>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{t('vendor_dashboard.overview.subtitle')}</p>
+        <h2 className="text-xl font-extrabold text-gray-900 dark:text-white">{t('vendor.overview.welcome')} 👋</h2>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{t('vendor.overview.subtitle')}</p>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-8">
@@ -83,20 +83,20 @@ export default function VendorDashboard({ store, productCount = 0, categoryCount
         {/* Recent orders */}
         <div className="lg:col-span-2 bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-xs overflow-hidden">
           <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-800">
-            <h3 className="font-semibold text-gray-900 dark:text-white text-sm">{t('vendor_dashboard.overview.recent_orders')}</h3>
+            <h3 className="font-semibold text-gray-900 dark:text-white text-sm">{t('vendor.overview.recent_orders')}</h3>
             <Link href="/vendor/orders" className="text-xs text-orange-500 hover:text-orange-600 font-medium flex items-center gap-1">
-              {t('vendor_dashboard.overview.view_orders')} <ArrowRight size={12} />
+              {t('vendor.overview.view_orders')} <ArrowRight size={12} />
             </Link>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="text-xs text-gray-400 border-b border-gray-50 dark:border-gray-800">
-                  <th className="px-5 py-3 text-start font-medium">{t('vendor_dashboard.orders.order_id')}</th>
-                  <th className="px-5 py-3 text-start font-medium">{t('vendor_dashboard.orders.customer')}</th>
-                  <th className="px-5 py-3 text-start font-medium hidden sm:table-cell">{t('vendor_dashboard.orders.date')}</th>
-                  <th className="px-5 py-3 text-start font-medium">{t('vendor_dashboard.orders.total')}</th>
-                  <th className="px-5 py-3 text-start font-medium">{t('vendor_dashboard.orders.status')}</th>
+                  <th className="px-5 py-3 text-start font-medium">{t('vendor.orders.order_id')}</th>
+                  <th className="px-5 py-3 text-start font-medium">{t('vendor.orders.customer')}</th>
+                  <th className="px-5 py-3 text-start font-medium hidden sm:table-cell">{t('vendor.orders.date')}</th>
+                  <th className="px-5 py-3 text-start font-medium">{t('vendor.orders.total')}</th>
+                  <th className="px-5 py-3 text-start font-medium">{t('vendor.orders.status')}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-50 dark:divide-gray-800">
@@ -116,13 +116,13 @@ export default function VendorDashboard({ store, productCount = 0, categoryCount
 
         {/* Quick actions */}
         <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-xs p-5">
-          <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-4">{t('vendor_dashboard.overview.quick_actions')}</h3>
+          <h3 className="font-semibold text-gray-900 dark:text-white text-sm mb-4">{t('vendor.overview.quick_actions')}</h3>
           <div className="space-y-3">
             {[
-              { label: t('vendor_dashboard.overview.add_product'), href: '/vendor/products', icon: Plus, color: 'bg-orange-500 hover:bg-orange-600 text-white' },
-              { label: t('vendor_dashboard.overview.manage_products'), href: '/vendor/products', icon: Package, color: 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200' },
-              { label: t('vendor_dashboard.overview.view_orders'), href: '/vendor/orders', icon: ShoppingBag, color: 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200' },
-              { label: t('vendor_dashboard.overview.edit_settings'), href: '/vendor/settings', icon: ArrowRight, color: 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200' },
+              { label: t('vendor.overview.add_product'), href: '/vendor/products', icon: Plus, color: 'bg-orange-500 hover:bg-orange-600 text-white' },
+              { label: t('vendor.overview.manage_products'), href: '/vendor/products', icon: Package, color: 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200' },
+              { label: t('vendor.overview.view_orders'), href: '/vendor/orders', icon: ShoppingBag, color: 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200' },
+              { label: t('vendor.overview.edit_settings'), href: '/vendor/settings', icon: ArrowRight, color: 'bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200' },
             ].map(action => {
               const Icon = action.icon;
               return (
