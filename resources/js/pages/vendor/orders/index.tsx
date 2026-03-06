@@ -29,7 +29,7 @@ function StatusBadge({ status }: { status: OrderStatus }) {
         cancelled: { cls: 'bg-red-100 text-red-700', icon: <XCircle size={11} /> },
     };
     const { cls, icon } = map[status];
-    return <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium ${cls}`}>{icon} {t(`vendor_dashboard.orders.${status}`)}</span>;
+    return <span className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-medium ${cls}`}>{icon} {t(`vendor.orders.${status}`)}</span>;
 }
 
 export default function VendorOrders({ store }: Props) {
@@ -40,20 +40,20 @@ export default function VendorOrders({ store }: Props) {
     const counts = ALL.reduce((acc, s) => { acc[s] = MOCK_ORDERS.filter(o => o.status === s).length; return acc; }, {} as Record<OrderStatus, number>);
 
     return (
-        <VendorLayout title={t('vendor_dashboard.orders.title')}>
-            <Head title={`${store.name} — ${t('vendor_dashboard.orders.title')}`} />
+        <VendorLayout title={t('vendor.orders.title')}>
+            <Head title={`${store.name} — ${t('vendor.orders.title')}`} />
             <div className="mb-6">
-                <h2 className="text-xl font-extrabold text-gray-900 dark:text-white">{t('vendor_dashboard.orders.title')}</h2>
-                <p className="text-sm text-gray-500 mt-0.5">{t('vendor_dashboard.orders.subtitle')}</p>
+                <h2 className="text-xl font-extrabold text-gray-900 dark:text-white">{t('vendor.orders.title')}</h2>
+                <p className="text-sm text-gray-500 mt-0.5">{t('vendor.orders.subtitle')}</p>
             </div>
 
             {/* Summary cards */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
                 {[
-                    { label: t('vendor_dashboard.orders.pending'), val: counts.pending, cls: 'bg-amber-50 text-amber-700' },
-                    { label: t('vendor_dashboard.orders.processing'), val: counts.processing, cls: 'bg-blue-50 text-blue-700' },
-                    { label: t('vendor_dashboard.orders.delivered'), val: counts.delivered, cls: 'bg-green-50 text-green-700' },
-                    { label: t('vendor_dashboard.orders.cancelled'), val: counts.cancelled, cls: 'bg-red-50 text-red-700' },
+                    { label: t('vendor.orders.pending'), val: counts.pending, cls: 'bg-amber-50 text-amber-700' },
+                    { label: t('vendor.orders.processing'), val: counts.processing, cls: 'bg-blue-50 text-blue-700' },
+                    { label: t('vendor.orders.delivered'), val: counts.delivered, cls: 'bg-green-50 text-green-700' },
+                    { label: t('vendor.orders.cancelled'), val: counts.cancelled, cls: 'bg-red-50 text-red-700' },
                 ].map(c => (
                     <div key={c.label} className={`rounded-xl px-4 py-3 flex flex-col gap-1 ${c.cls}`}>
                         <span className="text-xs font-medium opacity-80">{c.label}</span>
@@ -64,7 +64,7 @@ export default function VendorOrders({ store }: Props) {
 
             {/* Filter tabs */}
             <div className="flex flex-wrap gap-2 mb-5">
-                {[{ val: '', label: t('vendor_dashboard.orders.filter_all') }, ...ALL.map(s => ({ val: s, label: t(`vendor_dashboard.orders.${s}`) }))].map(tab => (
+                {[{ val: '', label: t('vendor.orders.filter_all') }, ...ALL.map(s => ({ val: s, label: t(`vendor.orders.${s}`) }))].map(tab => (
                     <button key={tab.val} onClick={() => setFilter(tab.val as any)}
                         className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all border ${filter === tab.val ? 'bg-orange-500 text-white border-orange-500' : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-700 hover:border-orange-300'}`}>
                         {tab.label}
@@ -76,7 +76,7 @@ export default function VendorOrders({ store }: Props) {
             {filtered.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-20 text-center">
                     <div className="w-16 h-16 rounded-2xl bg-orange-50 flex items-center justify-center mb-4"><ShoppingBag size={28} className="text-orange-300" /></div>
-                    <p className="text-gray-500 text-sm">{t('vendor_dashboard.orders.no_orders')}</p>
+                    <p className="text-gray-500 text-sm">{t('vendor.orders.no_orders')}</p>
                 </div>
             ) : (
                 <div className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-xs overflow-hidden">
@@ -84,12 +84,12 @@ export default function VendorOrders({ store }: Props) {
                         <table className="w-full text-sm">
                             <thead>
                                 <tr className="text-xs text-gray-400 bg-gray-50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-800">
-                                    <th className="px-5 py-3 text-start font-medium">{t('vendor_dashboard.orders.order_id')}</th>
-                                    <th className="px-5 py-3 text-start font-medium">{t('vendor_dashboard.orders.customer')}</th>
-                                    <th className="px-5 py-3 text-start font-medium hidden md:table-cell">{t('vendor_dashboard.orders.date')}</th>
-                                    <th className="px-5 py-3 text-start font-medium">{t('vendor_dashboard.orders.total')}</th>
-                                    <th className="px-5 py-3 text-start font-medium">{t('vendor_dashboard.orders.status')}</th>
-                                    <th className="px-5 py-3 text-end font-medium">{t('vendor_dashboard.orders.actions')}</th>
+                                    <th className="px-5 py-3 text-start font-medium">{t('vendor.orders.order_id')}</th>
+                                    <th className="px-5 py-3 text-start font-medium">{t('vendor.orders.customer')}</th>
+                                    <th className="px-5 py-3 text-start font-medium hidden md:table-cell">{t('vendor.orders.date')}</th>
+                                    <th className="px-5 py-3 text-start font-medium">{t('vendor.orders.total')}</th>
+                                    <th className="px-5 py-3 text-start font-medium">{t('vendor.orders.status')}</th>
+                                    <th className="px-5 py-3 text-end font-medium">{t('vendor.orders.actions')}</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-gray-50 dark:divide-gray-800">
@@ -105,7 +105,7 @@ export default function VendorOrders({ store }: Props) {
                                         <td className="px-5 py-3.5"><StatusBadge status={order.status} /></td>
                                         <td className="px-5 py-3.5 text-end">
                                             <button className="inline-flex items-center gap-1.5 text-xs text-orange-500 hover:text-orange-600 font-medium px-2.5 py-1.5 rounded-lg hover:bg-orange-50 transition-colors">
-                                                <Eye size={12} /> {t('vendor_dashboard.orders.view')}
+                                                <Eye size={12} /> {t('vendor.orders.view')}
                                             </button>
                                         </td>
                                     </tr>
